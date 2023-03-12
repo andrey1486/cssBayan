@@ -1,0 +1,178 @@
+body {
+   display: flex;
+   flex-direction: column;
+   font-size: 0.8rem;
+   min-height: 100%;
+   background-color: rgba(102, 86, 99, 0.644);
+   font-family: 'Inconsolata', serif;
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.title {
+    border-bottom: 0.15rem solid  rgb(82, 39, 39)
+}
+
+main {
+    flex: 1 1 auto;
+}
+
+.accordion {
+    cursor: pointer;
+}
+
+.accordion__image {
+    display: flex;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+h2 {
+    color: rgb(6, 49, 102);
+    transition: 0.6s;
+}
+
+.accordion:hover   h2{  
+    color: rgb(5, 4, 4);
+    transition: 0.6s;
+}
+
+.accordion__title {
+    color: black;
+    transition: 0.6s;
+}
+
+.title-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.accordion__image > img {
+    overflow: hidden;
+    transition: 0.5s;
+    height: 0%;
+    width: 0%;
+}
+
+.item {
+    padding: 0.4rem 0;
+    border-bottom: 0.15rem solid rgb(82, 39, 39);
+}
+
+label {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+}
+
+i > svg  {
+    width: 2rem;
+    height: 2rem;
+    transition: 0.5s;
+}
+
+.input:checked ~ label > .title-block > .icon > svg{
+   transform: rotate(45deg);
+   transition: 0.5s;
+}
+
+.input:checked ~ label> .title-block > h2{
+    color: black;
+}
+
+.item:active > label> .title-block > h2{
+    color: rgb(136, 17, 130);
+    
+    transition: 0.4s;
+}
+.item:active > label > .title-block > i > svg {
+    fill: rgb(136, 17, 130);
+    transition: 0.4s;
+}
+.item:active > label > .accordion__image {
+    filter: blur(0.09rem);
+    transition: 0.4s;
+}
+
+@media (hover: hover) {
+    .item:hover  label > .accordion__image > img {
+        transform: scale(1);
+        transition: all .8s;
+        width: 35%;
+        height: 35%;
+    }
+
+.accordion:hover  .item > label > .title-block > .icon {
+        opacity: 1;
+        transition: 0.5s;
+    }
+    i {
+        opacity: 0;
+        transition: 0.5s;
+     }
+
+.input:hover ~ label> .title-block > .icon >svg{
+        transform: rotate(45deg);
+        transition: 0.5s;
+        background-color: rgb(53, 87, 14);
+    }
+}
+
+@media (hover: none) {
+    i {
+        opacity: 0;
+        transition: 0.5s;
+    }
+}
+
+input {
+    display: none;
+}
+
+.input:checked ~ label > .accordion__image> img{
+    overflow: visible;
+    width: 50%;
+    height: 50%;
+    margin-top: 0.7rem;
+    justify-content: center;
+    transform: scale(1);
+    transition: all 1s ;
+} 
+
+@media (min-width: 830px) {
+    html {
+        height: 101vh;
+    }
+    body {
+        font-size: 1.2rem;
+    }
+    i > svg {
+        width: 2rem;
+        height: 2rem;
+    }
+    .container {
+        max-width: 70%;
+        margin: 0 auto;
+    }
+    .input:checked ~ label > .accordion__image> img{
+        width: 30%;
+        height: 30%;
+        overflow: visible;
+    }
+}
+
+@media (min-width: 1920px) {
+    body {
+        font-size: 1.4rem;
+    }
+    i > svg {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+}
+
